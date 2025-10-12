@@ -43,7 +43,8 @@ public class Week5Day3 {
    */
 
   public static <T, K1, K2, V> Map<K1, Map<K2, List<V>>> groupByTwoLevels(List<T> list,
-      Function<T, K1> key1, Function<T, K2> key2, Function<T, V> valueMapper) {
+      Function<? super T, ? extends K1> key1, Function<? super T, ? extends K2> key2,
+      Function<? super T, ? extends V> valueMapper) {
     return Optional.ofNullable(list)
         .orElse(List.of())
         .stream()
